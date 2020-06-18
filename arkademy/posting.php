@@ -9,8 +9,7 @@ if (isset($_POST['submit'])) {
 			header("location:index.php?Tambah=Gagal");
 		}
 	}
-$id = $_GET ['edit'];
-$produk = detail($id);
+
 
  ?>
 
@@ -23,7 +22,10 @@ $produk = detail($id);
 
 	<?php if (isset($_GET['edit'])): ?>
 	
-		<?php 
+	<?php 
+	$id = $_GET['edit'];
+	$produk = detail($id);
+	
 	if (isset($_POST['update'])) {
 
 		if (update($_POST) > 0) {
@@ -61,7 +63,7 @@ $produk = detail($id);
 		</table>
 	</form>
 	
-	<?php else: ?>
+	<?php else : ?>
 
 	<h2>Isi Data Produk</h2>
 	<p><a href="index.php"> <-- Kembali</a></p>
@@ -88,6 +90,6 @@ $produk = detail($id);
 			</tr>
 		</table>
 	</form>
-	<?php endif ?>
+	<?php endif; ?>
 </body>
 </html>
